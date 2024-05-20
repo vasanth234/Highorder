@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
+
+
+function Order(Compo){
+
+  let authen=true;
+  return (pro)=>{
+    if(authen){
+      <Compo {...pro} />
+    }
+    else{
+      <User/>
+    }
+  }
+}
+
+
+function Login(pro){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <h2>Login component</h2>
+    <p>{pro.username}</p>
+    </>
   );
 }
 
-export default App;
+
+
+function User(){
+  return (
+    <h2>User component</h2>
+  )
+  
+}
+const Authr=Order(Login)
+
+
+
+
+function App  () {
+  return (
+    <Authr username={"karna"}/>
+  )
+}
+
+export default App 
